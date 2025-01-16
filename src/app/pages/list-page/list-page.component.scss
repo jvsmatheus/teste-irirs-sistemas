@@ -10,3 +10,20 @@
     box-shadow: 3px 5px 12px lightgrey;
     padding: 15px;
 }
+
+.search {
+    border-bottom: 1px solid lightgrey;
+    padding: 15px;
+}
+
+.new-product-button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.input-group {
+    width: 550px
+}
