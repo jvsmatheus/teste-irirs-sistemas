@@ -1,3 +1,7 @@
+p {
+    margin: 0;
+}
+
 .center-container {
     height: 100vh;
 }
@@ -11,12 +15,23 @@
     padding: 15px;
 }
 
-.search {
+.list {
+    padding: 10px;
+}
+
+.list-header p {
+    margin: 0;
+    border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
+    padding: 10px;
+}
+
+.search {
+    // border-bottom: 1px solid lightgrey;
     padding: 15px;
 }
 
-.new-product-button {
+.default-button {
     background-color: var(--primary-color);
     border: none;
     border-radius: 8px;
@@ -25,5 +40,27 @@
 }
 
 .input-group {
-    width: 550px
+    width: 450px
+}
+
+.title {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.card-wrapper {
+    padding: 10px;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.card-item:not(:last-child) {
+    border-bottom: 1px solid lightgrey;
+}
+
+.card-field {
+    display: flex;
+    justify-content: center;
+    align-self: center;
 }

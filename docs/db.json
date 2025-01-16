@@ -1,56 +1,254 @@
 {
-    "produtos": [
-      {
-        "id": 1,
-        "nome": "Hambúrguer",
-        "descricao": "Pão, bife de hambúrguer 90g, salada e batata.",
-        "preco": 8.5,
-        "categoria_id": 1
-      },
-      {
-        "id": 2,
-        "nome": "X-Búrguer",
-        "descricao": "Pão, bife de hambúrguer 90g, 1 fatia de queijo, salada e batata.",
-        "preco": 10.5,
-        "categoria_id": 1
-      },
-      {
-        "id": 3,
-        "nome": "X-Bacon",
-        "descricao": "Pão, bife de hambúrguer 90g, 1 fatia de queijo, 2 fatia de bacon, salada e batata.",
-        "preco": 12.5,
-        "categoria_id": 1
-      },
-      {
-        "id": 4,
-        "nome": "X-Tudo",
-        "descricao": "Pão, 2 bifes de hambúrguer 90g, 2 fatias de queijo, 4 fatias de bacon, salada e batata.",
-        "preco": 14.5,
-        "categoria_id": 1
-      },
-      {
-        "id": 5,
-        "nome": "Coca cola 350ml",
-        "descricao": "",
-        "preco": 5.5,
-        "categoria_id": 2
-      },
-      {
-        "id": 6,
-        "nome": "Coca cola 600ml",
-        "descricao": "",
-        "preco": 7.5,
-        "categoria_id": 2
-      }
-    ],
-    "categorias": [
-      {
-        "id": 1,
-        "nome": "Hambúrgueres"
-      },
-      {
-        "id": 2,
-        "nome": "Refrigerantes"
-      }
-    ]
-  }
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Usuario 1",
+      "email": "usuario1@example.com"
+    },
+    {
+      "id": 2,
+      "nome": "Usuario 2",
+      "email": "usuario2@example.com"
+    },
+    {
+      "id": 3,
+      "nome": "Usuario 3",
+      "email": "usuario3@example.com"
+    },
+    {
+      "id": 4,
+      "nome": "Usuario 4",
+      "email": "usuario4@example.com"
+    },
+    {
+      "id": 5,
+      "nome": "Usuario 5",
+      "email": "usuario5@example.com"
+    },
+    {
+      "id": 6,
+      "nome": "Usuario 6",
+      "email": "usuario6@example.com"
+    },
+    {
+      "id": 7,
+      "nome": "Usuario 7",
+      "email": "usuario7@example.com"
+    },
+    {
+      "id": 8,
+      "nome": "Usuario 8",
+      "email": "usuario8@example.com"
+    },
+    {
+      "id": 9,
+      "nome": "Usuario 9",
+      "email": "usuario9@example.com"
+    },
+    {
+      "id": 10,
+      "nome": "Usuario 10",
+      "email": "usuario10@example.com"
+    },
+    {
+      "id": 11,
+      "nome": "Usuario 11",
+      "email": "usuario11@example.com"
+    },
+    {
+      "id": 12,
+      "nome": "Usuario 12",
+      "email": "usuario12@example.com"
+    },
+    {
+      "id": 13,
+      "nome": "Usuario 13",
+      "email": "usuario13@example.com"
+    },
+    {
+      "id": 14,
+      "nome": "Usuario 14",
+      "email": "usuario14@example.com"
+    },
+    {
+      "id": 15,
+      "nome": "Usuario 15",
+      "email": "usuario15@example.com"
+    },
+    {
+      "id": 16,
+      "nome": "Usuario 16",
+      "email": "usuario16@example.com"
+    },
+    {
+      "id": 17,
+      "nome": "Usuario 17",
+      "email": "usuario17@example.com"
+    },
+    {
+      "id": 18,
+      "nome": "Usuario 18",
+      "email": "usuario18@example.com"
+    },
+    {
+      "id": 19,
+      "nome": "Usuario 19",
+      "email": "usuario19@example.com"
+    },
+    {
+      "id": 20,
+      "nome": "Usuario 20",
+      "email": "usuario20@example.com"
+    },
+    {
+      "id": 21,
+      "nome": "Usuario 21",
+      "email": "usuario21@example.com"
+    },
+    {
+      "id": 22,
+      "nome": "Usuario 22",
+      "email": "usuario22@example.com"
+    },
+    {
+      "id": 23,
+      "nome": "Usuario 23",
+      "email": "usuario23@example.com"
+    },
+    {
+      "id": 24,
+      "nome": "Usuario 24",
+      "email": "usuario24@example.com"
+    },
+    {
+      "id": 25,
+      "nome": "Usuario 25",
+      "email": "usuario25@example.com"
+    },
+    {
+      "id": 26,
+      "nome": "Usuario 26",
+      "email": "usuario26@example.com"
+    },
+    {
+      "id": 27,
+      "nome": "Usuario 27",
+      "email": "usuario27@example.com"
+    },
+    {
+      "id": 28,
+      "nome": "Usuario 28",
+      "email": "usuario28@example.com"
+    },
+    {
+      "id": 29,
+      "nome": "Usuario 29",
+      "email": "usuario29@example.com"
+    },
+    {
+      "id": 30,
+      "nome": "Usuario 30",
+      "email": "usuario30@example.com"
+    },
+    {
+      "id": 31,
+      "nome": "Usuario 31",
+      "email": "usuario31@example.com"
+    },
+    {
+      "id": 32,
+      "nome": "Usuario 32",
+      "email": "usuario32@example.com"
+    },
+    {
+      "id": 33,
+      "nome": "Usuario 33",
+      "email": "usuario33@example.com"
+    },
+    {
+      "id": 34,
+      "nome": "Usuario 34",
+      "email": "usuario34@example.com"
+    },
+    {
+      "id": 35,
+      "nome": "Usuario 35",
+      "email": "usuario35@example.com"
+    },
+    {
+      "id": 36,
+      "nome": "Usuario 36",
+      "email": "usuario36@example.com"
+    },
+    {
+      "id": 37,
+      "nome": "Usuario 37",
+      "email": "usuario37@example.com"
+    },
+    {
+      "id": 38,
+      "nome": "Usuario 38",
+      "email": "usuario38@example.com"
+    },
+    {
+      "id": 39,
+      "nome": "Usuario 39",
+      "email": "usuario39@example.com"
+    },
+    {
+      "id": 40,
+      "nome": "Usuario 40",
+      "email": "usuario40@example.com"
+    },
+    {
+      "id": 41,
+      "nome": "Usuario 41",
+      "email": "usuario41@example.com"
+    },
+    {
+      "id": 42,
+      "nome": "Usuario 42",
+      "email": "usuario42@example.com"
+    },
+    {
+      "id": 43,
+      "nome": "Usuario 43",
+      "email": "usuario43@example.com"
+    },
+    {
+      "id": 44,
+      "nome": "Usuario 44",
+      "email": "usuario44@example.com"
+    },
+    {
+      "id": 45,
+      "nome": "Usuario 45",
+      "email": "usuario45@example.com"
+    },
+    {
+      "id": 46,
+      "nome": "Usuario 46",
+      "email": "usuario46@example.com"
+    },
+    {
+      "id": 47,
+      "nome": "Usuario 47",
+      "email": "usuario47@example.com"
+    },
+    {
+      "id": 48,
+      "nome": "Usuario 48",
+      "email": "usuario48@example.com"
+    },
+    {
+      "id": 49,
+      "nome": "Usuario 49",
+      "email": "usuario49@example.com"
+    },
+    {
+      "id": 50,
+      "nome": "Usuario 50",
+      "email": "usuario50@example.com"
+    }
+  ]
+}
