@@ -36,9 +36,9 @@ export class CreateComponent {
     let form_value = this.form.value;
 
     const cleaned_value = {
-      name: form_value.name || '', // Converte null para string vazia
+      name: form_value.name || '',
       email: form_value.email || '',
-      age: form_value.age || 0, // Converte null para 0 ou outro valor padrão
+      age: form_value.age || 0, 
     };
 
     this.user_service.createUser(cleaned_value).subscribe(
