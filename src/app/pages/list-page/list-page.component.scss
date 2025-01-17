@@ -19,6 +19,10 @@ p {
     padding: 10px;
 }
 
+.list::-webkit-scrollbar {
+    width: 6px;
+}
+
 .list-header p {
     margin: 0;
     border-top: 1px solid lightgrey;
@@ -51,8 +55,9 @@ p {
 
 .card-wrapper {
     padding: 10px;
-    max-height: 500px;
+    max-height: 450px;
     overflow-y: scroll;
+    box-shadow: inset 0px 0px 7px lightgrey;
 }
 
 .card-item:not(:last-child) {
@@ -64,3 +69,16 @@ p {
     justify-content: center;
     align-self: center;
 }
+
+::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+    background: lightgray;
+    -webkit-border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+    -webkit-border-radius: 8px;
+}
+

@@ -1,9 +1,16 @@
+
 :root {
-    --primary-color: #F85408; /* Roxo primário */
-    --secondary-color: #FFF3E8; /* Roxo primário */
+    --primary-color: #F85408;
+    --secondary-color: #FFF3E8; 
     
 }
 
 body {
     background-color: var(--secondary-color);
+}
+
+::ng-deep .mat-dialog-container {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  // padding: 20px;
 }
