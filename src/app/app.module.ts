@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { CreateComponent } from './components/create/create.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDialogModule } from '@angular/material/dialog';
+import {FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [
     UserService,

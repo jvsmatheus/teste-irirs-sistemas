@@ -9,11 +9,12 @@ import { User } from '../../models/User';
 })
 export class UserService {
 
-  private http: HttpClient;
-  private api_url: string = environment.api_url;
+  private api_url: string;
 
-  constructor(injector: Injector) {
-    this.http = injector.get(HttpClient);
+  constructor(
+    private http: HttpClient,
+  ) {
+    this.api_url = environment.api_url;
   }
 
   getUsers() {

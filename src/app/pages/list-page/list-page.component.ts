@@ -13,15 +13,16 @@ import { CreateComponent } from '../../components/create/create.component';
 })
 export class ListPageComponent implements OnInit{
 
-  private service: UserService;
-  private modal: MatDialog;
   users: User[];
+  is_edit: boolean;
   
 
-  constructor(injector: Injector) {
-    this.service = injector.get(UserService);
-    this.modal = injector.get(MatDialog);
+  constructor(
+    private user_service: UserService,
+    private modal: MatDialog,
+  ) {
     this.users = [];
+    this.is_edit = false;
   }
 
   ngOnInit(): void {
@@ -30,7 +31,7 @@ export class ListPageComponent implements OnInit{
 
   get() {
     this.users = [];
-    this.service.getUsers().subscribe(
+    this.user_service.getUsers().subscribe(
       (data) => {
         for (let user of data) {
           this.users.push(user);
@@ -44,22 +45,24 @@ export class ListPageComponent implements OnInit{
     let modal = this.modal.open(
       CreateComponent,
       {
-        height: '550px',
+        height: '475px',
         width: '450px',
+        data: {
+          is_edit: this.is_edit,
+        }
       }
     );
-    // this.service.createUser(user).subscribe(
-    //   (data) => {
-        
-    //     console.log("User", data);
-    //   }
-    // )
+    
+    modal.componentInstance.formSubmittedEvent.subscribe(() => {
+      modal.close();
+      this.get();
+    })
   }
 
   deleteUser(id: number) {
     console.log(id);
     
-    this.service.deleteUser(id).subscribe(
+    this.user_service.deleteUser(id).subscribe(
       (data) => {
         this.get();
         console.log("User deletado", data);
