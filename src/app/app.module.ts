@@ -11,12 +11,16 @@ import { CreateComponent } from './components/create/create.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDialogModule } from '@angular/material/dialog';
 import {FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListPageComponent,
-    CreateComponent
+    CreateComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import {FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
     CommonModule,
     MatDialogModule,
     ReactiveFormsModule,
-    
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule, MatInputModule, MatTableModule
   ],
   providers: [
     UserService,

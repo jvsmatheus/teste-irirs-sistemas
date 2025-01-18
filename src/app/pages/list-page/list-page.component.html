@@ -5,12 +5,12 @@
                 <div class="search d-flex">
                     <div class="col-12 d-flex justify-content-around">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Pesquisar por e-mail...">
+                            <input type="text" class="form-control" placeholder="Pesquisar por nome..." (input)="search($event, 'name')">
                         </div>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Pesquisar por nome...">
+                            <input type="text" class="form-control" placeholder="Pesquisar por e-mail..." (input)="search($event, 'email')">
                         </div>
-                        <button class="default-button" (click)="createUser()"><i class="bi bi-plus-lg"></i></button>
+                        <button class="default-button" (click)="save(false)"><i class="bi bi-plus-lg"></i></button>
                     </div>
                 </div>
                 <div class="list">
@@ -19,18 +19,18 @@
                         <div class="col-4"><p class="title">E-mail</p></div>
                         <div class="col-4"><p class="title">Ações</p></div>
                     </div>
-                    <div class="card-wrapper col-12" *ngIf="users.length > 0">
-                        <div class="card-item d-flex py-2" *ngFor="let user of users">
+                    <div class="card-wrapper col-12" *ngIf="filtered_users.length > 0">
+                        <div class="card-item d-flex py-2" *ngFor="let user of filtered_users">
                             <p class="col-4 card-field">{{ user.name }}</p>
                             <p class="col-4 card-field">{{ user.email }}</p>
                             <div class="col-4 card-field">
-                                <button class="default-button ms-3"><i class="bi bi-pencil-square"></i></button>
+                                <button class="default-button ms-3" (click)="save(true, user)"><i class="bi bi-pencil-square"></i></button>
                                 <button class="default-button ms-3" (click)="deleteUser(user.id!)"><i class="bi bi-trash3"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div *ngIf="users.length == 0" class="d-flex justify-content-center m-3 text-secondary">
+                <div *ngIf="filtered_users.length == 0" class="d-flex justify-content-center m-3 text-secondary">
                     <p>Nenhum usuário cadastrado! <i class="bi bi-hand-thumbs-down-fill"></i></p>
                 </div>
             </div>

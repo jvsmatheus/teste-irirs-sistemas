@@ -21,10 +21,6 @@ export class UserService {
     return this.http.get<User[]>(`${this.api_url}/usuarios`);
   }
 
-  getUserById(id: number) {
-    return this.http.get<User>(`${this.api_url}/usuarios/${id}`);
-  }
-
   createUser(data: User) {
     return this.http.post<User>(`${this.api_url}/usuarios`, data);
   }

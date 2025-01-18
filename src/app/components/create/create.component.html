@@ -13,16 +13,7 @@
                 <label for="formGroupExampleInput2" class="form-label">Idade</label>
                 <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="22" formControlName="age">
             </div>
-            <div *ngIf="form.invalid && (form.dirty || form.touched)" class="alert alert-danger">
-                <div *ngIf="form.errors?.['required']">Name is required.</div>
-                <div *ngIf="form.errors?.['minlength']">
-                Name must be at least 4 characters long.
-                </div>
-                <div *ngIf="form.errors?.['forbiddenName']">
-                Name cannot be Bob.
-                </div>
-            </div>
-            <button [ngClass]="form.invalid ? 'inactive-button' : 'default-button'" (click)="save()">Cadastrar</button>
+            <button [ngClass]="form.invalid ? 'inactive-button' : 'default-button'" (click)="save()">{{is_edit ? 'Editar' : 'Cadastrar'}}</button>
         </div>
     </div>
 </div>

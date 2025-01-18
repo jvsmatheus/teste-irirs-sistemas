@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user/user.service';
-import { User } from '../../models/User';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 interface Form {
   name: FormControl<string | null>;
@@ -18,21 +17,27 @@ interface Form {
   styleUrl: './create.component.scss'
 })
 export class CreateComponent {
-  @Input() is_edit?: boolean;
   @Output() formSubmittedEvent = new EventEmitter<void>();
+
+  is_edit: boolean; 
 
   form!: FormGroup<Form>;
 
-  constructor(private user_service: UserService) {
+  constructor(
+    private user_service: UserService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
     this.form = new FormGroup<Form>({
-      name: new FormControl<string | null>(null, [Validators.required, Validators.minLength(3)]),
-      email: new FormControl<string | null>(null, [Validators.required, Validators.email]),
-      age: new FormControl<number | null>(null, [Validators.min(18)]),
+      name: new FormControl<string | null>(this.data.user?.name, [Validators.required, Validators.minLength(3)]),
+      email: new FormControl<string | null>(this.data.user?.email, [Validators.required, Validators.email]),
+      age: new FormControl<number | null>(this.data.user?.age, [Validators.min(18)]),
     });
-    console.log(this.is_edit);
+    this.is_edit = data.is_edit;
   }
 
   save() {
+    console.log(this.data);
+    
     let form_value = this.form.value;
 
     const cleaned_value = {
@@ -41,11 +46,23 @@ export class CreateComponent {
       age: form_value.age || 0, 
     };
 
-    this.user_service.createUser(cleaned_value).subscribe(
-      (data) => {
-        console.log(data);
-        this.formSubmittedEvent.emit();
-      }
-    )
+    if (!this.is_edit) {
+      this.user_service.createUser(cleaned_value).subscribe(
+        (data) => {
+          console.log(data);
+          this.formSubmittedEvent.emit();
+        }
+      )
+    }
+    else {
+      this.user_service.updateUser(this.data.user.id, cleaned_value).subscribe(
+        (data) => {
+          console.log(data);
+          this.formSubmittedEvent.emit();
+        }
+      )
+    }
+
+    
   }
 }

@@ -7,22 +7,20 @@ import { CreateComponent } from '../../components/create/create.component';
 @Component({
   selector: 'app-list-page',
   standalone: false,
-  
   templateUrl: './list-page.component.html',
   styleUrl: './list-page.component.scss'
 })
 export class ListPageComponent implements OnInit{
 
   users: User[];
-  is_edit: boolean;
-  
+  filtered_users: User[];
 
   constructor(
     private user_service: UserService,
     private modal: MatDialog,
   ) {
     this.users = [];
-    this.is_edit = false;
+    this.filtered_users = [];
   }
 
   ngOnInit(): void {
@@ -36,19 +34,21 @@ export class ListPageComponent implements OnInit{
         for (let user of data) {
           this.users.push(user);
         }
+        this.filtered_users = [...this.users];
         console.log("Users", this.users);
       }
     )
   }
 
-  createUser() {
+  save(is_edit: boolean, user?: User) {
     let modal = this.modal.open(
       CreateComponent,
       {
         height: '475px',
         width: '450px',
         data: {
-          is_edit: this.is_edit,
+          is_edit: is_edit,
+          user: user
         }
       }
     );
@@ -68,5 +68,22 @@ export class ListPageComponent implements OnInit{
         console.log("User deletado", data);
       }
     )
+  }
+
+  search(event: Event, type: 'name' | 'email') {
+
+    const target = event.target as HTMLInputElement;
+    const value = target.value;
+
+    if (type === 'email') {
+      this.filtered_users = this.users.filter(user => {
+        return user.email?.toLowerCase().includes(value);
+      })
+    }
+    if (type === 'name') {
+      this.filtered_users = this.users.filter(user => {
+        return user.name?.toLowerCase().includes(value);
+      })
+    }
   }
 }
