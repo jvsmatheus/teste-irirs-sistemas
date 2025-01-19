@@ -44,8 +44,7 @@ export class ListPageComponent implements OnInit{
     let modal = this.modal.open(
       CreateComponent,
       {
-        height: '475px',
-        width: '450px',
+        width: '60vw',
         data: {
           is_edit: is_edit,
           user: user
@@ -73,13 +72,14 @@ export class ListPageComponent implements OnInit{
   search(event: Event, type: 'name' | 'email') {
 
     const target = event.target as HTMLInputElement;
-    const value = target.value;
+    const value = target.value.toLowerCase();
 
     if (type === 'email') {
       this.filtered_users = this.users.filter(user => {
         return user.email?.toLowerCase().includes(value);
       })
     }
+    
     if (type === 'name') {
       this.filtered_users = this.users.filter(user => {
         return user.name?.toLowerCase().includes(value);

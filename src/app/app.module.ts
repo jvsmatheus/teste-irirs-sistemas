@@ -31,7 +31,7 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
-    MatFormFieldModule, MatInputModule, MatTableModule
+    MatFormFieldModule,
   ],
   providers: [
     UserService,

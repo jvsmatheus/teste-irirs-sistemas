@@ -21,7 +21,7 @@ export class CreateComponent {
 
   is_edit: boolean; 
 
-  form!: FormGroup<Form>;
+  form: FormGroup<Form>;
 
   constructor(
     private user_service: UserService,
@@ -62,7 +62,5 @@ export class CreateComponent {
         }
       )
     }
-
-    
   }
 }

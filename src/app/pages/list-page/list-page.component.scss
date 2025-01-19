@@ -36,7 +36,7 @@ p {
 }
 
 .input-group {
-    width: 450px
+    width: 450px;
 }
 
 .title {
@@ -74,3 +74,20 @@ p {
     -webkit-border-radius: 8px;
 }
 
+// Media Querrys
+
+@media screen and (max-width: 1295px) {
+    .input-group {
+        width: 290px !important;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .input-group {
+        width: 240px !important;
+    }
+
+    .card-field {
+        font-size: 13px;
+    }
+}

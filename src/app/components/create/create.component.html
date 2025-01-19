@@ -1,9 +1,13 @@
 <div class="container">
     <div class="row">
-        <div class="form col-12" [formGroup]="form">
+        <div class="form col-12 d-flex flex-column" [formGroup]="form">
+            <div class="d-flex flex-column">
+                <h1>Cadastrar</h1>
+                <p class="fs-6 text">Preencha todos os campos com *</p>
+            </div>
             <div class="mb-4">
                 <label for="formGroupExampleInput" class="form-label">Nome*</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome Exemplo" formControlName="name">
+                <input matInput type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome Exemplo" formControlName="name">
             </div>
             <div class="mb-4">
                 <label for="formGroupExampleInput2" class="form-label">E-mail*</label>
@@ -13,7 +17,43 @@
                 <label for="formGroupExampleInput2" class="form-label">Idade</label>
                 <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="22" formControlName="age">
             </div>
-            <button [ngClass]="form.invalid ? 'inactive-button' : 'default-button'" (click)="save()">{{is_edit ? 'Editar' : 'Cadastrar'}}</button>
+
+            <!-- Validações -->
+            <div
+            class="alert alert-danger mb-4"
+            *ngIf="form.get('name')?.value && form.get('name')?.hasError('minlength')">
+                O nome deve ter no mínimo 3 caracteres
+            </div>
+            <div
+            class="alert alert-danger mb-4" 
+            *ngIf="form.get('name')?.value && form.get('name')?.hasError('required')">
+                O nome é obrigatório
+            </div>
+
+            <div
+            class="alert alert-danger mb-4"
+            *ngIf="form.get('email')?.value && form.get('email')?.hasError('email')">
+                Digite um email válido
+            </div>
+            <div
+            class="alert alert-danger mb-4" 
+            *ngIf="form.get('email')?.value && form.get('email')?.hasError('required')">
+                O e-mail é obrigatório
+            </div>
+
+            <div
+            class="alert alert-danger mb-4" 
+            *ngIf="form.get('age')?.value && form.get('age')?.value! < 18">
+                Idade mínima 18 anos
+            </div>
+
+
+            <button 
+            [ngClass]="form.invalid ? 'inactive-button' : 'default-button'"
+            [disabled]="form.invalid"
+            (click)="save()">
+                {{is_edit ? 'Editar' : 'Cadastrar'}}
+            </button>
         </div>
     </div>
 </div>
