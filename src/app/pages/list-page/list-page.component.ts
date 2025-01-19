@@ -2,6 +2,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../models/User';
 import { MatDialog } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { CreateComponent } from '../../components/create/create.component';
 
 @Component({
@@ -18,6 +19,7 @@ export class ListPageComponent implements OnInit{
   constructor(
     private user_service: UserService,
     private modal: MatDialog,
+    private snack_bar: MatSnackBar,
   ) {
     this.users = [];
     this.filtered_users = [];
@@ -29,15 +31,17 @@ export class ListPageComponent implements OnInit{
 
   get() {
     this.users = [];
-    this.user_service.getUsers().subscribe(
-      (data) => {
+    this.user_service.getUsers().subscribe({
+      next: (data) => {
         for (let user of data) {
           this.users.push(user);
         }
         this.filtered_users = [...this.users];
-        console.log("Users", this.users);
+      },
+      error: () => {
+        this.snack_bar.open('Erro ao buscar usuários', 'fechar', {duration: 2000});
       }
-    )
+    })
   }
 
   save(is_edit: boolean, user?: User) {
@@ -62,10 +66,18 @@ export class ListPageComponent implements OnInit{
     console.log(id);
     
     this.user_service.deleteUser(id).subscribe(
-      (data) => {
-        this.get();
-        console.log("User deletado", data);
+      {
+        next: () => {
+          this.snack_bar.open('Usuário deletado com sucesso', 'fechar', {duration: 2000, panelClass: ['custom-snackbar-success']});
+          this.get();
+        },
+        error: (error) => {
+          console.error(error);
+          this.snack_bar.open('Erro ao deletar usuário', 'fechar', {duration: 2000, panelClass: ['custom-snackbar-error']});
+          this.get();
+        },
       }
+      
     )
   }
 
@@ -85,5 +97,9 @@ export class ListPageComponent implements OnInit{
         return user.name?.toLowerCase().includes(value);
       })
     }
+  }
+
+  debug(message: string, action: string) {
+    this.snack_bar.open(message, action, {duration: 2000});
   }
 }
