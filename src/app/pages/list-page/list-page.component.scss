@@ -78,6 +78,11 @@ p {
     display: none !important;
 }
 
+.card-field span {
+    margin-left: 10px;
+    font-size: 0.95em;
+}
+
 // Media Querrys
 
 @media screen and (max-width: 1295px) {
@@ -117,4 +122,20 @@ p {
    .search {
         flex-direction: column !important;
    }
+
+   .card-field {
+        justify-content: unset;
+        align-self: unset;
+        margin-bottom: 5px;
+   }
+
+   .default-button {
+        font-size: 23px;
+   }
+}
+
+@media screen and (max-width: 375px) {
+    .card-field.mobile span{
+        font-size: 0.85em !important;
+    }
 }

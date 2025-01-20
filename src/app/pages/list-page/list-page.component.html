@@ -24,10 +24,19 @@
                         <div class="col-4"><p class="title">Ações</p></div>
                     </div>
                     <div class="card-wrapper col-12" *ngIf="filtered_users.length > 0">
-                        <div class="card-item d-flex py-2" *ngFor="let user of filtered_users">
+                        <div class="card-item d-none d-md-flex py-2" *ngFor="let user of filtered_users">
                             <p class="col-4 card-field">{{ user.name }}</p>
                             <p class="col-4 card-field">{{ user.email }}</p>
                             <div class="col-4 card-field">
+                                <button class="default-button ms-3" (click)="showUserCard(user)"><i class="bi bi-person"></i></button>
+                                <button class="default-button ms-3" (click)="save(true, user)"><i class="bi bi-pencil-square"></i></button>
+                                <button class="default-button ms-3" (click)="deleteUser(user.id!)"><i class="bi bi-trash3"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-item d-flex d-md-none flex-column flex-md-row align-items-start p-2" *ngFor="let user of filtered_users">
+                            <p class="card-field mobile">Nome: <span>{{ user.name }}</span></p>
+                            <p class="card-field mobile">E-mail: <span>{{ user.email }}</span></p>
+                            <div class="card-field w-100 d-flex justify-content-end">
                                 <button class="default-button ms-3" (click)="showUserCard(user)"><i class="bi bi-person"></i></button>
                                 <button class="default-button ms-3" (click)="save(true, user)"><i class="bi bi-pencil-square"></i></button>
                                 <button class="default-button ms-3" (click)="deleteUser(user.id!)"><i class="bi bi-trash3"></i></button>
