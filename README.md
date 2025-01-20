@@ -14,3 +14,4 @@ Por ultimo, para subir a aplicação em um servidor local (na pasta que contem o
 ```bash
 ng serve
 ```
+Ou basta simplesmente acessar clicando nesse link <https://teste-irirs-sistemas.vercel.app/>
