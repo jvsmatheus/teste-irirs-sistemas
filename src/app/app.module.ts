@@ -14,12 +14,15 @@ import {FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListPageComponent,
     CreateComponent,
+    UserCardComponent,
     
   ],
   imports: [

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <h2>Informações do Usuário</h2>
+            <div class="field">
+              <label for="id">ID:</label>
+              <span id="id">{{data.user.id}}</span>
+            </div>
+            <div class="field">
+              <label for="name">Nome:</label>
+              <span id="name">{{data.user.name}}</span>
+            </div>
+            <div class="field">
+              <label for="email">Email:</label>
+              <span id="email">{{data.user.email}}</span>
+            </div>
+            <!-- A API mock que estou usando gera dados aleatórios e não consigo limitar uma idade mínima -->
+            <div class="field">
+              <label for="age">Idade:</label>
+              <span id="age">{{data.user.age < 18 ? '--' : data.user.age}}</span>
+            </div>
+        </div>
+    </div>
+</div>

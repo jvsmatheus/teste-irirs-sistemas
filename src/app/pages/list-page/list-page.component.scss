@@ -41,7 +41,7 @@ p {
 
 .title {
     color: var(--primary-color);
-    font-size: 1.5rem;
+    font-size: 1.5em;
     text-align: center;
 }
 
@@ -74,6 +74,10 @@ p {
     -webkit-border-radius: 8px;
 }
 
+.hide {
+    display: none !important;
+}
+
 // Media Querrys
 
 @media screen and (max-width: 1295px) {
@@ -83,11 +87,34 @@ p {
 }
 
 @media screen and (max-width: 880px) {
-    .input-group {
-        width: 240px !important;
-    }
-
     .card-field {
         font-size: 13px;
     }
+}
+
+@media screen and (max-width: 768px){
+    .input-group {
+        width: 245px !important;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .input-group {
+        margin-bottom: 10px;
+        width: 100% !important;
+    }
+
+   .search {
+        flex-direction: column !important;
+   }
+}
+
+@media screen and (max-width: 425px) {
+    .input-group {
+        margin-bottom: 10px;
+    }
+
+   .search {
+        flex-direction: column !important;
+   }
 }

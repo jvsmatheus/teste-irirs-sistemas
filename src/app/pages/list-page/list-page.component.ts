@@ -4,6 +4,7 @@ import { User } from '../../models/User';
 import { MatDialog } from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { CreateComponent } from '../../components/create/create.component';
+import { UserCardComponent } from '../../components/user-card/user-card.component';
 
 @Component({
   selector: 'app-list-page',
@@ -16,6 +17,8 @@ export class ListPageComponent implements OnInit{
   users: User[];
   filtered_users: User[];
 
+  show_filters: boolean;
+
   constructor(
     private user_service: UserService,
     private modal: MatDialog,
@@ -23,6 +26,7 @@ export class ListPageComponent implements OnInit{
   ) {
     this.users = [];
     this.filtered_users = [];
+    this.show_filters = false;
   }
 
   ngOnInit(): void {
@@ -93,5 +97,19 @@ export class ListPageComponent implements OnInit{
         return user.name?.toLowerCase().includes(value);
       });
     }
+  }
+
+  showUserCard(user: User) {
+    console.log(user);
+    
+    let modal = this.modal.open(
+      UserCardComponent,
+      {
+        // width: '60vw',
+        data: {
+          user: user
+        }
+      }
+    );
   }
 }

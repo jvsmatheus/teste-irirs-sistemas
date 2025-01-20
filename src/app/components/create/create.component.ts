@@ -38,8 +38,6 @@ export class CreateComponent {
   }
 
   save() {
-    console.log(this.data);
-    
     let form_value = this.form.value;
 
     const cleaned_value = {
