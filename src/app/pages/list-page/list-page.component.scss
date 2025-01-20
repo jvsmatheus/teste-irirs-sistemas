@@ -52,9 +52,10 @@ p {
     box-shadow: inset 0px 0px 7px lightgrey;
 }
 
-.card-item:not(:last-child) {
-    border-bottom: 1px solid lightgrey;
+.card-item {
+    border-bottom: 1px solid #ccc; 
 }
+  
 
 .card-field {
     display: flex;
