@@ -59,12 +59,10 @@ export class ListPageComponent implements OnInit{
     modal.componentInstance.formSubmittedEvent.subscribe(() => {
       modal.close();
       this.get();
-    })
+    });
   }
 
   deleteUser(id: number) {
-    console.log(id);
-    
     this.user_service.deleteUser(id).subscribe(
       {
         next: () => {
@@ -72,12 +70,10 @@ export class ListPageComponent implements OnInit{
           this.get();
         },
         error: (error) => {
-          console.error(error);
           this.snack_bar.open('Erro ao deletar usuário', 'fechar', {duration: 2000, panelClass: ['custom-snackbar-error']});
           this.get();
         },
       }
-      
     )
   }
 
@@ -89,17 +85,13 @@ export class ListPageComponent implements OnInit{
     if (type === 'email') {
       this.filtered_users = this.users.filter(user => {
         return user.email?.toLowerCase().includes(value);
-      })
+      });
     }
     
     if (type === 'name') {
       this.filtered_users = this.users.filter(user => {
         return user.name?.toLowerCase().includes(value);
-      })
+      });
     }
-  }
-
-  debug(message: string, action: string) {
-    this.snack_bar.open(message, action, {duration: 2000});
   }
 }

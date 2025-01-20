@@ -2,6 +2,7 @@ import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user/user.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Form {
   name: FormControl<string | null>;
@@ -25,6 +26,7 @@ export class CreateComponent {
 
   constructor(
     private user_service: UserService,
+    private snack_bar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = new FormGroup<Form>({
@@ -47,20 +49,28 @@ export class CreateComponent {
     };
 
     if (!this.is_edit) {
-      this.user_service.createUser(cleaned_value).subscribe(
-        (data) => {
-          console.log(data);
+      this.user_service.createUser(cleaned_value).subscribe({
+        next: () => {
+          this.snack_bar.open('Usuário cadastrado com sucesso', 'fechar', {duration: 2000, panelClass: ['custom-snackbar-success']});
+          this.formSubmittedEvent.emit();
+        },
+        error: () => {
+          this.snack_bar.open('Erro ao cadastrar usuário', 'fechar', {duration: 2000, panelClass: ['custom-snackbar-error']});
           this.formSubmittedEvent.emit();
         }
-      )
+      });
     }
     else {
-      this.user_service.updateUser(this.data.user.id, cleaned_value).subscribe(
-        (data) => {
-          console.log(data);
+      this.user_service.updateUser(this.data.user.id, cleaned_value).subscribe({
+        next: () => {
+          this.snack_bar.open('Usuário editado com sucesso', 'fechar', {duration: 2000, panelClass: ['custom-snackbar-success']});
+          this.formSubmittedEvent.emit();
+        },
+        error: () => {
+          this.snack_bar.open('Erro ao editar usuário', 'fechar', {duration: 2000, panelClass: ['custom-snackbar-error']});
           this.formSubmittedEvent.emit();
         }
-      )
+      });
     }
   }
 }
