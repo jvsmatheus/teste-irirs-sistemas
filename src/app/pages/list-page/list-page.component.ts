@@ -100,12 +100,9 @@ export class ListPageComponent implements OnInit{
   }
 
   showUserCard(user: User) {
-    console.log(user);
-    
     let modal = this.modal.open(
       UserCardComponent,
       {
-        // width: '60vw',
         data: {
           user: user
         }
